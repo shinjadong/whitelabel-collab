@@ -1,0 +1,29 @@
+# --- secrets & per-client state (never commit) ---
+.env
+clients/*.env
+!clients/*.env.example
+**/secrets/
+*.local
+
+# --- runtime / rendered instances ---
+/opt/
+data/
+golden/*.json
+golden/*.yaml
+*.tar.gz
+*.zip
+
+# --- vendored upstream sources (reconstructed via bootstrap.sh, never committed) ---
+mattermost-src/
+vendor/refs/
+
+# --- python / tooling ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- editor/os ---
+.DS_Store
+.idea/
+.vscode/

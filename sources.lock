@@ -1,0 +1,19 @@
+# sources.lock — pinned upstream Mattermost sources for byte-identical reproduction.
+# Format: <name> <git-url> <commit-sha> <branch-at-capture>
+# Captured 2026-06-28 (currently tracking master/main HEADs; GOAL-PREP re-pins to release-<MM_VERSION>).
+# bootstrap.sh clones each at the EXACT sha → every device gets the identical source state.
+# We pin (not vendor) on purpose: re-hosting Mattermost source — esp. server/enterprise (Source
+# Available License) — is forbidden and bloats the repo. See docs/06-REPRODUCE-ON-NEW-DEVICE.md.
+
+# --- core (required for the reference environment + build) ---
+mattermost                          https://github.com/mattermost/mattermost.git                          1efe1aa9bb2e656ecdcf457e2d1b554e4d329d0c  master
+docs                                https://github.com/mattermost/docs.git                                aa696711bdff9e0cff3473be0ac02bf5be3e715a  master
+mattermost-developer-documentation  https://github.com/mattermost/mattermost-developer-documentation.git  dca0a0a56212e3e21c309766df35f932909729ef  master
+mattermost-api-reference            https://github.com/mattermost/mattermost-api-reference.git            a00af94dab63e9af3adc4a05e279a84ae73908d8  master
+mattermost-plugin-calls             https://github.com/mattermost/mattermost-plugin-calls.git             81f2ed8c7d0f0e01d1ab509d6475113d3708d627  main
+mattermost-plugin-playbooks         https://github.com/mattermost/mattermost-plugin-playbooks.git         cbe3d195f7d94bb13903191306793b15e512845a  master
+mattermost-plugin-boards            https://github.com/mattermost/mattermost-plugin-boards.git            d4543276476b7fa6ff8ab57773746861a42e183d  main
+
+# --- optional (custom mobile/desktop phase; skipped when CORE_ONLY=1) ---
+mattermost-mobile                   https://github.com/mattermost/mattermost-mobile.git                   c1bd1eae7d127f309a0916e0285e8ccd8539c670  main
+desktop                             https://github.com/mattermost/desktop.git                             098f4d0f130d3e5944152d98557f59d91b9e16cd  master
